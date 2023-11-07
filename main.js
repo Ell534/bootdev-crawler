@@ -1,7 +1,7 @@
 const { argv, exit } = require('node:process');
 const { crawlPage } = require('./crawl.js');
 
-function main() {
+async function main() {
     if (argv.length < 3) {
         console.log('No website provided for crawler please enter a base URL');
         exit(1);
@@ -16,7 +16,11 @@ function main() {
     const baseURL = argv[2];
 
     console.log(`Crawler starting with base URL of ${baseURL}`);
-    crawlPage(baseURL);
+    const pages = await crawlPage(baseURL, baseURL, {});
+
+    for (const page of Object.entries(pages)) {
+        console.log(page);
+    }
 }
 
 main();
