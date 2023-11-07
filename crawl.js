@@ -24,9 +24,6 @@ function getURLsFromHTML(htmlBody, baseURL) {
         }
     }
     return urls;
-
-    // console.log(urls);
-    // return htmlBody;
 }
 
 // getURLsFromHTML(`<a href="https://boot.dev">Learn Backend Development</a>`);
