@@ -1,4 +1,5 @@
 const { argv, exit } = require('node:process');
+const { crawlPage } = require('./crawl.js');
 
 function main() {
     if (argv.length < 3) {
@@ -11,7 +12,11 @@ function main() {
         );
         exit(1);
     }
-    console.log(`Crawler starting with base URL of ${argv[2]}`);
+
+    const baseURL = argv[2];
+
+    console.log(`Crawler starting with base URL of ${baseURL}`);
+    crawlPage(baseURL);
 }
 
 main();
